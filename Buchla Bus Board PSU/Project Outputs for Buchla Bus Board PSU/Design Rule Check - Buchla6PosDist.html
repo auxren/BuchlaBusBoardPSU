@@ -1,0 +1,862 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD16\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">12/2/2016</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">11:42:56 AM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:03</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc" class="file"><acronym title="C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc">C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">174</td></tr>
+</table>
+</td>
+</table><a name="IDMVLSUO4OAG2SVFHQ3SSZRBO0GTYBZSKOYDXI4FNYCUYIPA5JHJG"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2Q5M0YXXCVSED43CU1VJVBYLCNEMNQX2Y5205RDOXH025WFAM1QK">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFSBSUZ2JNGGZNHBYHEV4IIEPDL5HFVEDZGLVIRHRXA0CAMPWDVHK">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3IVV2G1GSABRGEWAUW2KG10SULDGRLKF0RSK2QHVCCFQBQN4M5ML">Clearance Constraint (Gap=20mil) (All),(All)</a></td>
+<td class="column2">152</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFQ0WL4TLZEVCBVILZVXHCLE5XBE4ZVSALRFKG5H0H5TLH24XE13C">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDFLSMQ0UE3BGJO3L3CGSFAJTOLPX3JR4JKOJFIYCYTU3FGBMLJ3WJ">Width Constraint (Min=20mil) (Max=100mil) (Preferred=50mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYF0PG4IVUFKTEV0W42D4NNZ3FGX0C0SHVY05INF1YQ0EL4EG3FIO">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZLYPQMO0DQ5SLQLLVEXFMCLC0CRYNGK2BU0BNRHWMYSSQS2SRXBN">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOO1J3TYKVTISH2S2NWD1R3VFPBPZTYGGFW2VNOBU2GVIRQSF1V3M">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0LFTCAWRFUXHP121UDFIWG3JHF4MMS5QOJIQW1CMAE440GSR234B">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</a></td>
+<td class="column2">8</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDRBURR3TLZOJTBHLGIUPIZIICWENVKTMUJY2K4IIOMVDJ1R421FHF">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</a></td>
+<td class="column2">11</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUWYMHZC3R15GCIJW0Q3UCDBHIJKXWQDNLZ52RTEHACMYIXA34SQB">Silk to Silk (Clearance=10mil) (All),(All)</a></td>
+<td class="column2">3</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNZN25DX3QN2RHFJSO1IYD0REWK24AB40C2DFNOCCPD35CCN1H5N">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDGH5V21VKGNCB4OXJCIGIWNSDNQWA5YEYBNUK1HJSJ1WAYFCIHNJ">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">174</td>
+</tr>
+</table><br><a name="ID3IVV2G1GSABRGEWAUW2KG10SULDGRLKF0RSK2QHVCCFQBQN4M5ML"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=20mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10234.833mil|Location2.X=10267.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10234.833mil|Location2.X=10267.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (3478.071mil,1725mil)(4021.732mil,1725mil) on Keep-Out Layer And Pad Vag1-10(3862mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10128.833mil|Location2.X=10161.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10128.833mil|Location2.X=10161.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (3478.071mil,1725mil)(4021.732mil,1725mil) on Keep-Out Layer And Pad Vag1-9(3706mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9910.91mil|Location2.X=9932.16mil|Location1.Y=8252.73mil|Location2.Y=8283.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9910.91mil|Location2.X=9932.16mil|Location1.Y=8252.73mil|Location2.Y=8283.125mil|Absolute=True">Clearance Constraint: (16.929mil &lt; 20mil) Between Track (3478.071mil,1725mil)(3478.071mil,2039.961mil) on Keep-Out Layer And Pad Vag1-8(3550mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9972.833mil|Location2.X=10005.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9972.833mil|Location2.X=10005.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (3478.071mil,1725mil)(4021.732mil,1725mil) on Keep-Out Layer And Pad Vag1-8(3550mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9660.833mil|Location2.X=9693.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9660.833mil|Location2.X=9693.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-6(3238mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9504.833mil|Location2.X=9537.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9504.833mil|Location2.X=9537.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-5(3082mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9348.833mil|Location2.X=9381.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9348.833mil|Location2.X=9381.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-4(2926mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9192.833mil|Location2.X=9225.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9192.833mil|Location2.X=9225.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-3(2770mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9036.833mil|Location2.X=9069.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9036.833mil|Location2.X=9069.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-2(2614mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8830.833mil|Location2.X=8863.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8830.833mil|Location2.X=8863.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-1(2458mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10246.833mil|Location2.X=10279.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10246.833mil|Location2.X=10279.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (3478.071mil,4795.866mil)(4021.732mil,4795.866mil) on Keep-Out Layer And Pad Vag2-10(3874mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10140.833mil|Location2.X=10173.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10140.833mil|Location2.X=10173.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (3478.071mil,4795.866mil)(4021.732mil,4795.866mil) on Keep-Out Layer And Pad Vag2-9(3718mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9984.833mil|Location2.X=10017.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9984.833mil|Location2.X=10017.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (3478.071mil,4795.866mil)(4021.732mil,4795.866mil) on Keep-Out Layer And Pad Vag2-8(3562mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9672.833mil|Location2.X=9705.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9672.833mil|Location2.X=9705.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-6(3250mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9516.833mil|Location2.X=9549.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9516.833mil|Location2.X=9549.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-5(3094mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9360.833mil|Location2.X=9393.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9360.833mil|Location2.X=9393.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-4(2938mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9204.833mil|Location2.X=9237.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9204.833mil|Location2.X=9237.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-3(2782mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9048.833mil|Location2.X=9081.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9048.833mil|Location2.X=9081.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-2(2626mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8842.833mil|Location2.X=8875.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8842.833mil|Location2.X=8875.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-1(2470mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=14046.833mil|Location2.X=14079.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=14046.833mil|Location2.X=14079.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (7255.433mil,4795.866mil)(7799.134mil,4795.866mil) on Keep-Out Layer And Pad Vag3-10(7674mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13940.833mil|Location2.X=13973.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13940.833mil|Location2.X=13973.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (7255.433mil,4795.866mil)(7799.134mil,4795.866mil) on Keep-Out Layer And Pad Vag3-9(7518mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13784.833mil|Location2.X=13817.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13784.833mil|Location2.X=13817.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (7255.433mil,4795.866mil)(7799.134mil,4795.866mil) on Keep-Out Layer And Pad Vag3-8(7362mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13525.714mil|Location2.X=13546.964mil|Location1.Y=11052.73mil|Location2.Y=11083.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13525.714mil|Location2.X=13546.964mil|Location1.Y=11052.73mil|Location2.Y=11083.125mil|Absolute=True">Clearance Constraint: (12.677mil &lt; 20mil) Between Track (7117.677mil,4480.905mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-6(7050mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13472.833mil|Location2.X=13505.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13472.833mil|Location2.X=13505.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-6(7050mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13316.833mil|Location2.X=13349.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13316.833mil|Location2.X=13349.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-5(6894mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13160.833mil|Location2.X=13193.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13160.833mil|Location2.X=13193.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-4(6738mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13004.833mil|Location2.X=13037.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13004.833mil|Location2.X=13037.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-3(6582mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12848.833mil|Location2.X=12881.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12848.833mil|Location2.X=12881.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-2(6426mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12642.833mil|Location2.X=12675.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12642.833mil|Location2.X=12675.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-1(6270mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=14046.833mil|Location2.X=14079.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=14046.833mil|Location2.X=14079.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (7255.433mil,1725mil)(7799.134mil,1725mil) on Keep-Out Layer And Pad Vag4-10(7674mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13940.833mil|Location2.X=13973.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13940.833mil|Location2.X=13973.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (7255.433mil,1725mil)(7799.134mil,1725mil) on Keep-Out Layer And Pad Vag4-9(7518mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13784.833mil|Location2.X=13817.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13784.833mil|Location2.X=13817.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (7255.433mil,1725mil)(7799.134mil,1725mil) on Keep-Out Layer And Pad Vag4-8(7362mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13525.714mil|Location2.X=13546.964mil|Location1.Y=8252.73mil|Location2.Y=8283.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13525.714mil|Location2.X=13546.964mil|Location1.Y=8252.73mil|Location2.Y=8283.125mil|Absolute=True">Clearance Constraint: (12.677mil &lt; 20mil) Between Track (7117.677mil,1725mil)(7117.677mil,2039.961mil) on Keep-Out Layer And Pad Vag4-6(7050mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13472.833mil|Location2.X=13505.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13472.833mil|Location2.X=13505.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-6(7050mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13316.833mil|Location2.X=13349.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13316.833mil|Location2.X=13349.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-5(6894mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13160.833mil|Location2.X=13193.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13160.833mil|Location2.X=13193.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-4(6738mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13004.833mil|Location2.X=13037.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13004.833mil|Location2.X=13037.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-3(6582mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12848.833mil|Location2.X=12881.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12848.833mil|Location2.X=12881.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-2(6426mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12642.833mil|Location2.X=12675.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12642.833mil|Location2.X=12675.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-1(6270mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21584.833mil|Location2.X=21617.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21584.833mil|Location2.X=21617.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (14810.276mil,1725mil)(15354.055mil,1725mil) on Keep-Out Layer And Pad Vag5-10(15212mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21478.833mil|Location2.X=21511.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21478.833mil|Location2.X=21511.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (14810.276mil,1725mil)(15354.055mil,1725mil) on Keep-Out Layer And Pad Vag5-9(15056mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21322.833mil|Location2.X=21355.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21322.833mil|Location2.X=21355.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (14810.276mil,1725mil)(15354.055mil,1725mil) on Keep-Out Layer And Pad Vag5-8(14900mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21010.833mil|Location2.X=21043.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21010.833mil|Location2.X=21043.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-6(14588mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20854.833mil|Location2.X=20887.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20854.833mil|Location2.X=20887.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-5(14432mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20698.833mil|Location2.X=20731.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20698.833mil|Location2.X=20731.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-4(14276mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20542.833mil|Location2.X=20575.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20542.833mil|Location2.X=20575.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-3(14120mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20386.833mil|Location2.X=20419.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20386.833mil|Location2.X=20419.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-2(13964mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20180.833mil|Location2.X=20213.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20180.833mil|Location2.X=20213.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-1(13808mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22727.991mil|Location2.X=22760.194mil|Location1.Y=10422.833mil|Location2.Y=10437.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22727.991mil|Location2.X=22760.194mil|Location1.Y=10422.833mil|Location2.Y=10437.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,3555.905mil)(16305.157mil,4099.606mil) on Keep-Out Layer And Pad Vag6-10(16150mil,3950mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=10316.833mil|Location2.Y=10331.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=10316.833mil|Location2.Y=10331.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,3555.905mil)(16305.157mil,4099.606mil) on Keep-Out Layer And Pad Vag6-9(16150mil,3794mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=10160.833mil|Location2.Y=10175.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=10160.833mil|Location2.Y=10175.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,3555.905mil)(16305.157mil,4099.606mil) on Keep-Out Layer And Pad Vag6-8(16150mil,3638mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9848.833mil|Location2.Y=9863.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9848.833mil|Location2.Y=9863.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-6(16150mil,3326mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9692.833mil|Location2.Y=9707.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9692.833mil|Location2.Y=9707.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-5(16150mil,3170mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9536.833mil|Location2.Y=9551.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9536.833mil|Location2.Y=9551.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-4(16150mil,3014mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9380.833mil|Location2.Y=9395.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9380.833mil|Location2.Y=9395.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-3(16150mil,2858mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9224.833mil|Location2.Y=9239.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9224.833mil|Location2.Y=9239.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-2(16150mil,2702mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22727.991mil|Location2.X=22760.194mil|Location1.Y=9018.833mil|Location2.Y=9033.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22727.991mil|Location2.X=22760.194mil|Location1.Y=9018.833mil|Location2.Y=9033.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-1(16150mil,2546mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21572.833mil|Location2.X=21605.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21572.833mil|Location2.X=21605.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (14810.276mil,4795.866mil)(15354.055mil,4795.866mil) on Keep-Out Layer And Pad Vag7-10(15200mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21466.833mil|Location2.X=21499.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21466.833mil|Location2.X=21499.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (14810.276mil,4795.866mil)(15354.055mil,4795.866mil) on Keep-Out Layer And Pad Vag7-9(15044mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21310.833mil|Location2.X=21343.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21310.833mil|Location2.X=21343.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (14810.276mil,4795.866mil)(15354.055mil,4795.866mil) on Keep-Out Layer And Pad Vag7-8(14888mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20998.833mil|Location2.X=21031.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20998.833mil|Location2.X=21031.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-6(14576mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20842.833mil|Location2.X=20875.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20842.833mil|Location2.X=20875.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-5(14420mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20686.833mil|Location2.X=20719.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20686.833mil|Location2.X=20719.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-4(14264mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20530.833mil|Location2.X=20563.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20530.833mil|Location2.X=20563.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-3(14108mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20374.833mil|Location2.X=20407.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20374.833mil|Location2.X=20407.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-2(13952mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20168.833mil|Location2.X=20201.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20168.833mil|Location2.X=20201.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-1(13796mil,4650mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17826.833mil|Location2.X=17859.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17826.833mil|Location2.X=17859.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (11032.717mil,1725mil)(11576.417mil,1725mil) on Keep-Out Layer And Pad Vag8-10(11454mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17720.833mil|Location2.X=17753.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17720.833mil|Location2.X=17753.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (11032.717mil,1725mil)(11576.417mil,1725mil) on Keep-Out Layer And Pad Vag8-9(11298mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17564.833mil|Location2.X=17597.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17564.833mil|Location2.X=17597.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (11032.717mil,1725mil)(11576.417mil,1725mil) on Keep-Out Layer And Pad Vag8-8(11142mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17304.355mil|Location2.X=17325.605mil|Location1.Y=8252.73mil|Location2.Y=8283.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17304.355mil|Location2.X=17325.605mil|Location1.Y=8252.73mil|Location2.Y=8283.125mil|Absolute=True">Clearance Constraint: (9.961mil &lt; 20mil) Between Track (10894.961mil,1725mil)(10894.961mil,2039.961mil) on Keep-Out Layer And Pad Vag8-6(10830mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17252.833mil|Location2.X=17285.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17252.833mil|Location2.X=17285.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-6(10830mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17096.833mil|Location2.X=17129.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17096.833mil|Location2.X=17129.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-5(10674mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16940.833mil|Location2.X=16973.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16940.833mil|Location2.X=16973.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-4(10518mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16784.833mil|Location2.X=16817.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16784.833mil|Location2.X=16817.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-3(10362mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16628.833mil|Location2.X=16661.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16628.833mil|Location2.X=16661.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-2(10206mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16422.833mil|Location2.X=16455.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16422.833mil|Location2.X=16455.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-1(10050mil,1850mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10234.833mil|Location2.X=10267.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10234.833mil|Location2.X=10267.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (3478.071mil,1725mil)(4021.732mil,1725mil) on Keep-Out Layer And Pad Vag1-10(3862mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10128.833mil|Location2.X=10161.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10128.833mil|Location2.X=10161.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (3478.071mil,1725mil)(4021.732mil,1725mil) on Keep-Out Layer And Pad Vag1-9(3706mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9910.91mil|Location2.X=9932.16mil|Location1.Y=8252.73mil|Location2.Y=8283.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9910.91mil|Location2.X=9932.16mil|Location1.Y=8252.73mil|Location2.Y=8283.125mil|Absolute=True">Clearance Constraint: (16.929mil &lt; 20mil) Between Track (3478.071mil,1725mil)(3478.071mil,2039.961mil) on Keep-Out Layer And Pad Vag1-8(3550mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9972.833mil|Location2.X=10005.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9972.833mil|Location2.X=10005.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (3478.071mil,1725mil)(4021.732mil,1725mil) on Keep-Out Layer And Pad Vag1-8(3550mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9660.833mil|Location2.X=9693.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9660.833mil|Location2.X=9693.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-6(3238mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9504.833mil|Location2.X=9537.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9504.833mil|Location2.X=9537.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-5(3082mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9348.833mil|Location2.X=9381.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9348.833mil|Location2.X=9381.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-4(2926mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9192.833mil|Location2.X=9225.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9192.833mil|Location2.X=9225.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-3(2770mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9036.833mil|Location2.X=9069.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9036.833mil|Location2.X=9069.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-2(2614mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8830.833mil|Location2.X=8863.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8830.833mil|Location2.X=8863.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-1(2458mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10246.833mil|Location2.X=10279.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10246.833mil|Location2.X=10279.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (3478.071mil,4795.866mil)(4021.732mil,4795.866mil) on Keep-Out Layer And Pad Vag2-10(3874mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10140.833mil|Location2.X=10173.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10140.833mil|Location2.X=10173.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (3478.071mil,4795.866mil)(4021.732mil,4795.866mil) on Keep-Out Layer And Pad Vag2-9(3718mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9984.833mil|Location2.X=10017.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9984.833mil|Location2.X=10017.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (3478.071mil,4795.866mil)(4021.732mil,4795.866mil) on Keep-Out Layer And Pad Vag2-8(3562mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9672.833mil|Location2.X=9705.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9672.833mil|Location2.X=9705.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-6(3250mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9516.833mil|Location2.X=9549.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9516.833mil|Location2.X=9549.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-5(3094mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9360.833mil|Location2.X=9393.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9360.833mil|Location2.X=9393.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-4(2938mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9204.833mil|Location2.X=9237.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9204.833mil|Location2.X=9237.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-3(2782mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9048.833mil|Location2.X=9081.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9048.833mil|Location2.X=9081.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-2(2626mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8842.833mil|Location2.X=8875.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=8842.833mil|Location2.X=8875.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-1(2470mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=14046.833mil|Location2.X=14079.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=14046.833mil|Location2.X=14079.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (7255.433mil,4795.866mil)(7799.134mil,4795.866mil) on Keep-Out Layer And Pad Vag3-10(7674mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13940.833mil|Location2.X=13973.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13940.833mil|Location2.X=13973.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (7255.433mil,4795.866mil)(7799.134mil,4795.866mil) on Keep-Out Layer And Pad Vag3-9(7518mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13784.833mil|Location2.X=13817.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13784.833mil|Location2.X=13817.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (7255.433mil,4795.866mil)(7799.134mil,4795.866mil) on Keep-Out Layer And Pad Vag3-8(7362mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13525.714mil|Location2.X=13546.964mil|Location1.Y=11052.73mil|Location2.Y=11083.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13525.714mil|Location2.X=13546.964mil|Location1.Y=11052.73mil|Location2.Y=11083.125mil|Absolute=True">Clearance Constraint: (12.677mil &lt; 20mil) Between Track (7117.677mil,4480.905mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-6(7050mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13472.833mil|Location2.X=13505.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13472.833mil|Location2.X=13505.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-6(7050mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13316.833mil|Location2.X=13349.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13316.833mil|Location2.X=13349.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-5(6894mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13160.833mil|Location2.X=13193.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13160.833mil|Location2.X=13193.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-4(6738mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13004.833mil|Location2.X=13037.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13004.833mil|Location2.X=13037.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-3(6582mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12848.833mil|Location2.X=12881.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12848.833mil|Location2.X=12881.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-2(6426mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12642.833mil|Location2.X=12675.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12642.833mil|Location2.X=12675.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-1(6270mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=14046.833mil|Location2.X=14079.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=14046.833mil|Location2.X=14079.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (7255.433mil,1725mil)(7799.134mil,1725mil) on Keep-Out Layer And Pad Vag4-10(7674mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13940.833mil|Location2.X=13973.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13940.833mil|Location2.X=13973.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (7255.433mil,1725mil)(7799.134mil,1725mil) on Keep-Out Layer And Pad Vag4-9(7518mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13784.833mil|Location2.X=13817.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13784.833mil|Location2.X=13817.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (7255.433mil,1725mil)(7799.134mil,1725mil) on Keep-Out Layer And Pad Vag4-8(7362mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13525.714mil|Location2.X=13546.964mil|Location1.Y=8252.73mil|Location2.Y=8283.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13525.714mil|Location2.X=13546.964mil|Location1.Y=8252.73mil|Location2.Y=8283.125mil|Absolute=True">Clearance Constraint: (12.677mil &lt; 20mil) Between Track (7117.677mil,1725mil)(7117.677mil,2039.961mil) on Keep-Out Layer And Pad Vag4-6(7050mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13472.833mil|Location2.X=13505.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13472.833mil|Location2.X=13505.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-6(7050mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13316.833mil|Location2.X=13349.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13316.833mil|Location2.X=13349.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-5(6894mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13160.833mil|Location2.X=13193.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13160.833mil|Location2.X=13193.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-4(6738mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13004.833mil|Location2.X=13037.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=13004.833mil|Location2.X=13037.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-3(6582mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12848.833mil|Location2.X=12881.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12848.833mil|Location2.X=12881.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-2(6426mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12642.833mil|Location2.X=12675.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=12642.833mil|Location2.X=12675.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-1(6270mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21584.833mil|Location2.X=21617.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21584.833mil|Location2.X=21617.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (14810.276mil,1725mil)(15354.055mil,1725mil) on Keep-Out Layer And Pad Vag5-10(15212mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21478.833mil|Location2.X=21511.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21478.833mil|Location2.X=21511.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (14810.276mil,1725mil)(15354.055mil,1725mil) on Keep-Out Layer And Pad Vag5-9(15056mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21322.833mil|Location2.X=21355.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21322.833mil|Location2.X=21355.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (14810.276mil,1725mil)(15354.055mil,1725mil) on Keep-Out Layer And Pad Vag5-8(14900mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21010.833mil|Location2.X=21043.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21010.833mil|Location2.X=21043.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-6(14588mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20854.833mil|Location2.X=20887.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20854.833mil|Location2.X=20887.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-5(14432mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20698.833mil|Location2.X=20731.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20698.833mil|Location2.X=20731.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-4(14276mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20542.833mil|Location2.X=20575.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20542.833mil|Location2.X=20575.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-3(14120mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20386.833mil|Location2.X=20419.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20386.833mil|Location2.X=20419.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-2(13964mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20180.833mil|Location2.X=20213.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20180.833mil|Location2.X=20213.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-1(13808mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22727.991mil|Location2.X=22760.194mil|Location1.Y=10422.833mil|Location2.Y=10437.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22727.991mil|Location2.X=22760.194mil|Location1.Y=10422.833mil|Location2.Y=10437.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,3555.905mil)(16305.157mil,4099.606mil) on Keep-Out Layer And Pad Vag6-10(16150mil,3950mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=10316.833mil|Location2.Y=10331.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=10316.833mil|Location2.Y=10331.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,3555.905mil)(16305.157mil,4099.606mil) on Keep-Out Layer And Pad Vag6-9(16150mil,3794mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=10160.833mil|Location2.Y=10175.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=10160.833mil|Location2.Y=10175.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,3555.905mil)(16305.157mil,4099.606mil) on Keep-Out Layer And Pad Vag6-8(16150mil,3638mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9848.833mil|Location2.Y=9863.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9848.833mil|Location2.Y=9863.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-6(16150mil,3326mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9692.833mil|Location2.Y=9707.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9692.833mil|Location2.Y=9707.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-5(16150mil,3170mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9536.833mil|Location2.Y=9551.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9536.833mil|Location2.Y=9551.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-4(16150mil,3014mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9380.833mil|Location2.Y=9395.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9380.833mil|Location2.Y=9395.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-3(16150mil,2858mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9224.833mil|Location2.Y=9239.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22704.162mil|Location2.X=22736.365mil|Location1.Y=9224.833mil|Location2.Y=9239.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-2(16150mil,2702mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22727.991mil|Location2.X=22760.194mil|Location1.Y=9018.833mil|Location2.Y=9033.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=22727.991mil|Location2.X=22760.194mil|Location1.Y=9018.833mil|Location2.Y=9033.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-1(16150mil,2546mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21572.833mil|Location2.X=21605.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21572.833mil|Location2.X=21605.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (14810.276mil,4795.866mil)(15354.055mil,4795.866mil) on Keep-Out Layer And Pad Vag7-10(15200mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21466.833mil|Location2.X=21499.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21466.833mil|Location2.X=21499.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (14810.276mil,4795.866mil)(15354.055mil,4795.866mil) on Keep-Out Layer And Pad Vag7-9(15044mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21310.833mil|Location2.X=21343.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=21310.833mil|Location2.X=21343.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (14810.276mil,4795.866mil)(15354.055mil,4795.866mil) on Keep-Out Layer And Pad Vag7-8(14888mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20998.833mil|Location2.X=21031.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20998.833mil|Location2.X=21031.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-6(14576mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20842.833mil|Location2.X=20875.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20842.833mil|Location2.X=20875.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-5(14420mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20686.833mil|Location2.X=20719.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20686.833mil|Location2.X=20719.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-4(14264mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20530.833mil|Location2.X=20563.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20530.833mil|Location2.X=20563.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-3(14108mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20374.833mil|Location2.X=20407.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20374.833mil|Location2.X=20407.037mil|Location1.Y=11299.516mil|Location2.Y=11313.85mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-2(13952mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20168.833mil|Location2.X=20201.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20168.833mil|Location2.X=20201.037mil|Location1.Y=11318.7mil|Location2.Y=11333.033mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-1(13796mil,4650mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17826.833mil|Location2.X=17859.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17826.833mil|Location2.X=17859.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (11032.717mil,1725mil)(11576.417mil,1725mil) on Keep-Out Layer And Pad Vag8-10(11454mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17720.833mil|Location2.X=17753.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17720.833mil|Location2.X=17753.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (11032.717mil,1725mil)(11576.417mil,1725mil) on Keep-Out Layer And Pad Vag8-9(11298mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17564.833mil|Location2.X=17597.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17564.833mil|Location2.X=17597.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (11032.717mil,1725mil)(11576.417mil,1725mil) on Keep-Out Layer And Pad Vag8-8(11142mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17304.355mil|Location2.X=17325.605mil|Location1.Y=8252.73mil|Location2.Y=8283.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17304.355mil|Location2.X=17325.605mil|Location1.Y=8252.73mil|Location2.Y=8283.125mil|Absolute=True">Clearance Constraint: (9.961mil &lt; 20mil) Between Track (10894.961mil,1725mil)(10894.961mil,2039.961mil) on Keep-Out Layer And Pad Vag8-6(10830mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17252.833mil|Location2.X=17285.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17252.833mil|Location2.X=17285.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-6(10830mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17096.833mil|Location2.X=17129.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17096.833mil|Location2.X=17129.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-5(10674mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16940.833mil|Location2.X=16973.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16940.833mil|Location2.X=16973.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-4(10518mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16784.833mil|Location2.X=16817.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16784.833mil|Location2.X=16817.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-3(10362mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16628.833mil|Location2.X=16661.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16628.833mil|Location2.X=16661.037mil|Location1.Y=8234.083mil|Location2.Y=8248.417mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-2(10206mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16422.833mil|Location2.X=16455.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16422.833mil|Location2.X=16455.037mil|Location1.Y=8247.833mil|Location2.Y=8262.167mil|Absolute=True">Clearance Constraint: (Collision &lt; 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-1(10050mil,1850mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID0LFTCAWRFUXHP121UDFIWG3JHF4MMS5QOJIQW1CMAE440GSR234B"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16153.727mil|Location2.X=16164.977mil|Location1.Y=10423.976mil|Location2.Y=10435.226mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16153.727mil|Location2.X=16164.977mil|Location1.Y=10423.976mil|Location2.Y=10435.226mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.087mil &lt; 10mil) Between Via (9720mil,3870mil) from Top Layer to Bottom Layer And Pad U11-1(9750mil,3964.961mil) on Multi-Layer [Top Solder] Mask Sliver [4.087mil] / [Bottom Solder] Mask Sliver [4.087mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16365.067mil|Location2.X=16376.317mil|Location1.Y=10019.826mil|Location2.Y=10031.076mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16365.067mil|Location2.X=16376.317mil|Location1.Y=10019.826mil|Location2.Y=10031.076mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (7.603mil &lt; 10mil) Between Via (9920mil,3470mil) from Top Layer to Bottom Layer And Pad U9-0(9985.039mil,3550mil) on Multi-Layer [Top Solder] Mask Sliver [7.603mil] / [Bottom Solder] Mask Sliver [7.603mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18385.538mil|Location2.X=18396.788mil|Location1.Y=10663.444mil|Location2.Y=10674.694mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18385.538mil|Location2.X=18396.788mil|Location1.Y=10663.444mil|Location2.Y=10674.694mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (6.337mil &lt; 10mil) Between Via (11970mil,4170mil) from Top Layer to Bottom Layer And Pad U1-2(11950mil,4100mil) on Multi-Layer [Top Solder] Mask Sliver [6.337mil] / [Bottom Solder] Mask Sliver [6.337mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20011.639mil|Location2.X=20022.889mil|Location1.Y=10394.375mil|Location2.Y=10405.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=20011.639mil|Location2.X=20022.889mil|Location1.Y=10394.375mil|Location2.Y=10405.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (7.473mil &lt; 10mil) Between Via (13620mil,3870mil) from Top Layer to Bottom Layer And Pad P1-1(13550mil,3850mil) on Multi-Layer [Top Solder] Mask Sliver [7.473mil] / [Bottom Solder] Mask Sliver [7.473mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16494.375mil|Location2.X=16505.625mil|Location1.Y=10662.623mil|Location2.Y=10673.873mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16494.375mil|Location2.X=16505.625mil|Location1.Y=10662.623mil|Location2.Y=10673.873mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.504mil &lt; 10mil) Between Via (10070mil,4170mil) from Top Layer to Bottom Layer And Pad U2-1(10100mil,4100mil) on Multi-Layer [Top Solder] Mask Sliver [5.504mil] / [Bottom Solder] Mask Sliver [5.504mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=15007.246mil|Location2.X=15018.496mil|Location1.Y=10663.756mil|Location2.Y=10675.006mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=15007.246mil|Location2.X=15018.496mil|Location1.Y=10663.756mil|Location2.Y=10675.006mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (8.428mil &lt; 10mil) Between Via (8570mil,4170mil) from Top Layer to Bottom Layer And Pad U4-1(8620mil,4100mil) on Multi-Layer [Top Solder] Mask Sliver [8.428mil] / [Bottom Solder] Mask Sliver [8.428mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=15081.504mil|Location2.X=15092.754mil|Location1.Y=10663.756mil|Location2.Y=10675.006mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=15081.504mil|Location2.X=15092.754mil|Location1.Y=10663.756mil|Location2.Y=10675.006mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (8.428mil &lt; 10mil) Between Via (8670mil,4170mil) from Top Layer to Bottom Layer And Pad U4-1(8620mil,4100mil) on Multi-Layer [Top Solder] Mask Sliver [8.428mil] / [Bottom Solder] Mask Sliver [8.428mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=15794.375mil|Location2.X=15805.625mil|Location1.Y=10662.623mil|Location2.Y=10673.873mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=15794.375mil|Location2.X=15805.625mil|Location1.Y=10662.623mil|Location2.Y=10673.873mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.504mil &lt; 10mil) Between Via (9370mil,4170mil) from Top Layer to Bottom Layer And Pad U3-1(9350mil,4100mil) on Multi-Layer [Top Solder] Mask Sliver [5.504mil] / [Bottom Solder] Mask Sliver [5.504mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDRBURR3TLZOJTBHLGIUPIZIICWENVKTMUJY2K4IIOMVDJ1R421FHF"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=14972.826mil|Location2.X=14984.076mil|Location1.Y=10271.102mil|Location2.Y=10282.352mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=14972.826mil|Location2.X=14984.076mil|Location1.Y=10271.102mil|Location2.Y=10282.352mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.654mil &lt; 10mil) Between Track (8560mil,3610mil)(8560mil,3730mil) on Top Overlay And Pad U14-0(8514.961mil,3800mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.654mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=15872.826mil|Location2.X=15884.076mil|Location1.Y=9821.102mil|Location2.Y=9832.352mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=15872.826mil|Location2.X=15884.076mil|Location1.Y=9821.102mil|Location2.Y=9832.352mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.654mil &lt; 10mil) Between Track (9460mil,3160mil)(9460mil,3280mil) on Top Overlay And Pad U13-0(9414.961mil,3350mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.654mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=14922.826mil|Location2.X=14934.076mil|Location1.Y=9771.102mil|Location2.Y=9782.352mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=14922.826mil|Location2.X=14934.076mil|Location1.Y=9771.102mil|Location2.Y=9782.352mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.654mil &lt; 10mil) Between Track (8510mil,3110mil)(8510mil,3230mil) on Top Overlay And Pad U12-0(8464.961mil,3300mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.654mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16121.102mil|Location2.X=16132.352mil|Location1.Y=9825.924mil|Location2.Y=9837.174mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16121.102mil|Location2.X=16132.352mil|Location1.Y=9825.924mil|Location2.Y=9837.174mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.654mil &lt; 10mil) Between Track (9560mil,3290mil)(9680mil,3290mil) on Top Overlay And Pad U11-0(9750mil,3335.039mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.654mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16375.924mil|Location2.X=16387.174mil|Location1.Y=10427.648mil|Location2.Y=10438.898mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16375.924mil|Location2.X=16387.174mil|Location1.Y=10427.648mil|Location2.Y=10438.898mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.654mil &lt; 10mil) Between Track (9940mil,3920mil)(9940mil,4040mil) on Top Overlay And Pad U10-0(9985.039mil,3850mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.654mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16375.924mil|Location2.X=16387.174mil|Location1.Y=10127.648mil|Location2.Y=10138.898mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16375.924mil|Location2.X=16387.174mil|Location1.Y=10127.648mil|Location2.Y=10138.898mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.654mil &lt; 10mil) Between Track (9940mil,3620mil)(9940mil,3740mil) on Top Overlay And Pad U9-0(9985.039mil,3550mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.654mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18240.885mil|Location2.X=18252.135mil|Location1.Y=10277.648mil|Location2.Y=10288.898mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18240.885mil|Location2.X=18252.135mil|Location1.Y=10277.648mil|Location2.Y=10288.898mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.654mil &lt; 10mil) Between Track (11804.961mil,3770mil)(11804.961mil,3890mil) on Top Overlay And Pad U7-0(11850mil,3700mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.654mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18022.826mil|Location2.X=18034.076mil|Location1.Y=9971.102mil|Location2.Y=9982.352mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18022.826mil|Location2.X=18034.076mil|Location1.Y=9971.102mil|Location2.Y=9982.352mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.654mil &lt; 10mil) Between Track (11610mil,3310mil)(11610mil,3430mil) on Top Overlay And Pad U6-0(11564.961mil,3500mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.654mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=19004.97mil|Location2.X=19012.637mil|Location1.Y=10381.68mil|Location2.Y=10389.346mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=19004.97mil|Location2.X=19012.637mil|Location1.Y=10381.68mil|Location2.Y=10389.346mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 10mil) Between Text "U7" (12576.461mil,3895.5mil) on Top Overlay And Pad D2-1(12570mil,3885.669mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=15985.423mil|Location2.X=15993.09mil|Location1.Y=10602.797mil|Location2.Y=10610.464mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=15985.423mil|Location2.X=15993.09mil|Location1.Y=10602.797mil|Location2.Y=10610.464mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 10mil) Between Text "U11" (9554.5mil,4061.5mil) on Top Overlay And Pad U3-3(9550mil,4100mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=15464.167mil|Location2.X=15471.833mil|Location1.Y=10309.85mil|Location2.Y=10317.516mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=15464.167mil|Location2.X=15471.833mil|Location1.Y=10309.85mil|Location2.Y=10317.516mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 10mil) Between Text "C3" (8989.5mil,3817.5mil) on Top Overlay And Pad C13-1(9050mil,3800mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDUWYMHZC3R15GCIJW0Q3UCDBHIJKXWQDNLZ52RTEHACMYIXA34SQB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16086.797mil|Location2.X=16094.463mil|Location1.Y=10634.582mil|Location2.Y=10642.248mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16086.797mil|Location2.X=16094.463mil|Location1.Y=10634.582mil|Location2.Y=10642.248mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "U11" (9554.5mil,4061.5mil) on Top Overlay And Track (9660.63mil,4027.165mil)(9660.63mil,4212.205mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17177.654mil|Location2.X=17185.32mil|Location1.Y=10217.098mil|Location2.Y=10224.765mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17177.654mil|Location2.X=17185.32mil|Location1.Y=10217.098mil|Location2.Y=10224.765mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "U9" (10711.5mil,3745.5mil) on Top Overlay And Text "U8" (10799.5mil,3694.5mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=15432.396mil|Location2.X=15440.063mil|Location1.Y=10238.287mil|Location2.Y=10245.954mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=15432.396mil|Location2.X=15440.063mil|Location1.Y=10238.287mil|Location2.Y=10245.954mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text ".1uF" (8950mil,3671.575mil) on Top Overlay And Text "C3" (8989.5mil,3817.5mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

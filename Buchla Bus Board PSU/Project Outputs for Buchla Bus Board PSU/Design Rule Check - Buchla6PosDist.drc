@@ -1,0 +1,221 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\oren\BuchlaBusBoardPSU\Buchla Bus Board PSU\Buchla6PosDist.PcbDoc
+Date     : 12/2/2016
+Time     : 11:42:56 AM
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=20mil) (All),(All)
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (3478.071mil,1725mil)(4021.732mil,1725mil) on Keep-Out Layer And Pad Vag1-10(3862mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (3478.071mil,1725mil)(4021.732mil,1725mil) on Keep-Out Layer And Pad Vag1-9(3706mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (16.929mil < 20mil) Between Track (3478.071mil,1725mil)(3478.071mil,2039.961mil) on Keep-Out Layer And Pad Vag1-8(3550mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (3478.071mil,1725mil)(4021.732mil,1725mil) on Keep-Out Layer And Pad Vag1-8(3550mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-6(3238mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-5(3082mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-4(2926mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-3(2770mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-2(2614mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-1(2458mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (3478.071mil,4795.866mil)(4021.732mil,4795.866mil) on Keep-Out Layer And Pad Vag2-10(3874mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (3478.071mil,4795.866mil)(4021.732mil,4795.866mil) on Keep-Out Layer And Pad Vag2-9(3718mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (3478.071mil,4795.866mil)(4021.732mil,4795.866mil) on Keep-Out Layer And Pad Vag2-8(3562mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-6(3250mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-5(3094mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-4(2938mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-3(2782mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-2(2626mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-1(2470mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (7255.433mil,4795.866mil)(7799.134mil,4795.866mil) on Keep-Out Layer And Pad Vag3-10(7674mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (7255.433mil,4795.866mil)(7799.134mil,4795.866mil) on Keep-Out Layer And Pad Vag3-9(7518mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (7255.433mil,4795.866mil)(7799.134mil,4795.866mil) on Keep-Out Layer And Pad Vag3-8(7362mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (12.677mil < 20mil) Between Track (7117.677mil,4480.905mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-6(7050mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-6(7050mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-5(6894mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-4(6738mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-3(6582mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-2(6426mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-1(6270mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (7255.433mil,1725mil)(7799.134mil,1725mil) on Keep-Out Layer And Pad Vag4-10(7674mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (7255.433mil,1725mil)(7799.134mil,1725mil) on Keep-Out Layer And Pad Vag4-9(7518mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (7255.433mil,1725mil)(7799.134mil,1725mil) on Keep-Out Layer And Pad Vag4-8(7362mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (12.677mil < 20mil) Between Track (7117.677mil,1725mil)(7117.677mil,2039.961mil) on Keep-Out Layer And Pad Vag4-6(7050mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-6(7050mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-5(6894mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-4(6738mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-3(6582mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-2(6426mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-1(6270mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (14810.276mil,1725mil)(15354.055mil,1725mil) on Keep-Out Layer And Pad Vag5-10(15212mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (14810.276mil,1725mil)(15354.055mil,1725mil) on Keep-Out Layer And Pad Vag5-9(15056mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (14810.276mil,1725mil)(15354.055mil,1725mil) on Keep-Out Layer And Pad Vag5-8(14900mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-6(14588mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-5(14432mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-4(14276mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-3(14120mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-2(13964mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-1(13808mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,3555.905mil)(16305.157mil,4099.606mil) on Keep-Out Layer And Pad Vag6-10(16150mil,3950mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,3555.905mil)(16305.157mil,4099.606mil) on Keep-Out Layer And Pad Vag6-9(16150mil,3794mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,3555.905mil)(16305.157mil,4099.606mil) on Keep-Out Layer And Pad Vag6-8(16150mil,3638mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-6(16150mil,3326mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-5(16150mil,3170mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-4(16150mil,3014mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-3(16150mil,2858mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-2(16150mil,2702mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-1(16150mil,2546mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (14810.276mil,4795.866mil)(15354.055mil,4795.866mil) on Keep-Out Layer And Pad Vag7-10(15200mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (14810.276mil,4795.866mil)(15354.055mil,4795.866mil) on Keep-Out Layer And Pad Vag7-9(15044mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (14810.276mil,4795.866mil)(15354.055mil,4795.866mil) on Keep-Out Layer And Pad Vag7-8(14888mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-6(14576mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-5(14420mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-4(14264mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-3(14108mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-2(13952mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-1(13796mil,4650mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (11032.717mil,1725mil)(11576.417mil,1725mil) on Keep-Out Layer And Pad Vag8-10(11454mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (11032.717mil,1725mil)(11576.417mil,1725mil) on Keep-Out Layer And Pad Vag8-9(11298mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (11032.717mil,1725mil)(11576.417mil,1725mil) on Keep-Out Layer And Pad Vag8-8(11142mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (9.961mil < 20mil) Between Track (10894.961mil,1725mil)(10894.961mil,2039.961mil) on Keep-Out Layer And Pad Vag8-6(10830mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-6(10830mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-5(10674mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-4(10518mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-3(10362mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-2(10206mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-1(10050mil,1850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (3478.071mil,1725mil)(4021.732mil,1725mil) on Keep-Out Layer And Pad Vag1-10(3862mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (3478.071mil,1725mil)(4021.732mil,1725mil) on Keep-Out Layer And Pad Vag1-9(3706mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (16.929mil < 20mil) Between Track (3478.071mil,1725mil)(3478.071mil,2039.961mil) on Keep-Out Layer And Pad Vag1-8(3550mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (3478.071mil,1725mil)(4021.732mil,1725mil) on Keep-Out Layer And Pad Vag1-8(3550mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-6(3238mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-5(3082mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-4(2926mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-3(2770mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-2(2614mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,1725mil)(3340.276mil,1725mil) on Keep-Out Layer And Pad Vag1-1(2458mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (3478.071mil,4795.866mil)(4021.732mil,4795.866mil) on Keep-Out Layer And Pad Vag2-10(3874mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (3478.071mil,4795.866mil)(4021.732mil,4795.866mil) on Keep-Out Layer And Pad Vag2-9(3718mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (3478.071mil,4795.866mil)(4021.732mil,4795.866mil) on Keep-Out Layer And Pad Vag2-8(3562mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-6(3250mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-5(3094mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-4(2938mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-3(2782mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-2(2626mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (2328.819mil,4795.866mil)(3340.276mil,4795.866mil) on Keep-Out Layer And Pad Vag2-1(2470mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (7255.433mil,4795.866mil)(7799.134mil,4795.866mil) on Keep-Out Layer And Pad Vag3-10(7674mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (7255.433mil,4795.866mil)(7799.134mil,4795.866mil) on Keep-Out Layer And Pad Vag3-9(7518mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (7255.433mil,4795.866mil)(7799.134mil,4795.866mil) on Keep-Out Layer And Pad Vag3-8(7362mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (12.677mil < 20mil) Between Track (7117.677mil,4480.905mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-6(7050mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-6(7050mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-5(6894mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-4(6738mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-3(6582mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-2(6426mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,4795.866mil)(7117.677mil,4795.866mil) on Keep-Out Layer And Pad Vag3-1(6270mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (7255.433mil,1725mil)(7799.134mil,1725mil) on Keep-Out Layer And Pad Vag4-10(7674mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (7255.433mil,1725mil)(7799.134mil,1725mil) on Keep-Out Layer And Pad Vag4-9(7518mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (7255.433mil,1725mil)(7799.134mil,1725mil) on Keep-Out Layer And Pad Vag4-8(7362mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (12.677mil < 20mil) Between Track (7117.677mil,1725mil)(7117.677mil,2039.961mil) on Keep-Out Layer And Pad Vag4-6(7050mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-6(7050mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-5(6894mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-4(6738mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-3(6582mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-2(6426mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (6106.221mil,1725mil)(7117.677mil,1725mil) on Keep-Out Layer And Pad Vag4-1(6270mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (14810.276mil,1725mil)(15354.055mil,1725mil) on Keep-Out Layer And Pad Vag5-10(15212mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (14810.276mil,1725mil)(15354.055mil,1725mil) on Keep-Out Layer And Pad Vag5-9(15056mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (14810.276mil,1725mil)(15354.055mil,1725mil) on Keep-Out Layer And Pad Vag5-8(14900mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-6(14588mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-5(14432mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-4(14276mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-3(14120mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-2(13964mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,1725mil)(14672.52mil,1725mil) on Keep-Out Layer And Pad Vag5-1(13808mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,3555.905mil)(16305.157mil,4099.606mil) on Keep-Out Layer And Pad Vag6-10(16150mil,3950mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,3555.905mil)(16305.157mil,4099.606mil) on Keep-Out Layer And Pad Vag6-9(16150mil,3794mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,3555.905mil)(16305.157mil,4099.606mil) on Keep-Out Layer And Pad Vag6-8(16150mil,3638mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-6(16150mil,3326mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-5(16150mil,3170mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-4(16150mil,3014mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-3(16150mil,2858mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-2(16150mil,2702mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (16305.157mil,2406.693mil)(16305.157mil,3418.11mil) on Keep-Out Layer And Pad Vag6-1(16150mil,2546mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (14810.276mil,4795.866mil)(15354.055mil,4795.866mil) on Keep-Out Layer And Pad Vag7-10(15200mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (14810.276mil,4795.866mil)(15354.055mil,4795.866mil) on Keep-Out Layer And Pad Vag7-9(15044mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (14810.276mil,4795.866mil)(15354.055mil,4795.866mil) on Keep-Out Layer And Pad Vag7-8(14888mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-6(14576mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-5(14420mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-4(14264mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-3(14108mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-2(13952mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (13661.063mil,4795.866mil)(14672.52mil,4795.866mil) on Keep-Out Layer And Pad Vag7-1(13796mil,4650mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (11032.717mil,1725mil)(11576.417mil,1725mil) on Keep-Out Layer And Pad Vag8-10(11454mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (11032.717mil,1725mil)(11576.417mil,1725mil) on Keep-Out Layer And Pad Vag8-9(11298mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (11032.717mil,1725mil)(11576.417mil,1725mil) on Keep-Out Layer And Pad Vag8-8(11142mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (9.961mil < 20mil) Between Track (10894.961mil,1725mil)(10894.961mil,2039.961mil) on Keep-Out Layer And Pad Vag8-6(10830mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-6(10830mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-5(10674mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-4(10518mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-3(10362mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-2(10206mil,1850mil) on Bottom Layer 
+   Violation between Clearance Constraint: (Collision < 20mil) Between Track (9883.504mil,1725mil)(10894.961mil,1725mil) on Keep-Out Layer And Pad Vag8-1(10050mil,1850mil) on Bottom Layer 
+Rule Violations :152
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=20mil) (Max=100mil) (Preferred=50mil) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=10mil) (All),(All)
+   Violation between Minimum Solder Mask Sliver Constraint: (4.087mil < 10mil) Between Via (9720mil,3870mil) from Top Layer to Bottom Layer And Pad U11-1(9750mil,3964.961mil) on Multi-Layer [Top Solder] Mask Sliver [4.087mil] / [Bottom Solder] Mask Sliver [4.087mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (7.603mil < 10mil) Between Via (9920mil,3470mil) from Top Layer to Bottom Layer And Pad U9-0(9985.039mil,3550mil) on Multi-Layer [Top Solder] Mask Sliver [7.603mil] / [Bottom Solder] Mask Sliver [7.603mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (6.337mil < 10mil) Between Via (11970mil,4170mil) from Top Layer to Bottom Layer And Pad U1-2(11950mil,4100mil) on Multi-Layer [Top Solder] Mask Sliver [6.337mil] / [Bottom Solder] Mask Sliver [6.337mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (7.473mil < 10mil) Between Via (13620mil,3870mil) from Top Layer to Bottom Layer And Pad P1-1(13550mil,3850mil) on Multi-Layer [Top Solder] Mask Sliver [7.473mil] / [Bottom Solder] Mask Sliver [7.473mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (5.504mil < 10mil) Between Via (10070mil,4170mil) from Top Layer to Bottom Layer And Pad U2-1(10100mil,4100mil) on Multi-Layer [Top Solder] Mask Sliver [5.504mil] / [Bottom Solder] Mask Sliver [5.504mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (8.428mil < 10mil) Between Via (8570mil,4170mil) from Top Layer to Bottom Layer And Pad U4-1(8620mil,4100mil) on Multi-Layer [Top Solder] Mask Sliver [8.428mil] / [Bottom Solder] Mask Sliver [8.428mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (8.428mil < 10mil) Between Via (8670mil,4170mil) from Top Layer to Bottom Layer And Pad U4-1(8620mil,4100mil) on Multi-Layer [Top Solder] Mask Sliver [8.428mil] / [Bottom Solder] Mask Sliver [8.428mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (5.504mil < 10mil) Between Via (9370mil,4170mil) from Top Layer to Bottom Layer And Pad U3-1(9350mil,4100mil) on Multi-Layer [Top Solder] Mask Sliver [5.504mil] / [Bottom Solder] Mask Sliver [5.504mil]
+Rule Violations :8
+
+Processing Rule : Silk To Solder Mask (Clearance=10mil) (IsPad),(All)
+   Violation between Silk To Solder Mask Clearance Constraint: (0.654mil < 10mil) Between Track (8560mil,3610mil)(8560mil,3730mil) on Top Overlay And Pad U14-0(8514.961mil,3800mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.654mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.654mil < 10mil) Between Track (9460mil,3160mil)(9460mil,3280mil) on Top Overlay And Pad U13-0(9414.961mil,3350mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.654mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.654mil < 10mil) Between Track (8510mil,3110mil)(8510mil,3230mil) on Top Overlay And Pad U12-0(8464.961mil,3300mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.654mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.654mil < 10mil) Between Track (9560mil,3290mil)(9680mil,3290mil) on Top Overlay And Pad U11-0(9750mil,3335.039mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.654mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.654mil < 10mil) Between Track (9940mil,3920mil)(9940mil,4040mil) on Top Overlay And Pad U10-0(9985.039mil,3850mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.654mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.654mil < 10mil) Between Track (9940mil,3620mil)(9940mil,3740mil) on Top Overlay And Pad U9-0(9985.039mil,3550mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.654mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.654mil < 10mil) Between Track (11804.961mil,3770mil)(11804.961mil,3890mil) on Top Overlay And Pad U7-0(11850mil,3700mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.654mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.654mil < 10mil) Between Track (11610mil,3310mil)(11610mil,3430mil) on Top Overlay And Pad U6-0(11564.961mil,3500mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.654mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 10mil) Between Text "U7" (12576.461mil,3895.5mil) on Top Overlay And Pad D2-1(12570mil,3885.669mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 10mil) Between Text "U11" (9554.5mil,4061.5mil) on Top Overlay And Pad U3-3(9550mil,4100mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 10mil) Between Text "C3" (8989.5mil,3817.5mil) on Top Overlay And Pad C13-1(9050mil,3800mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]
+Rule Violations :11
+
+Processing Rule : Silk to Silk (Clearance=10mil) (All),(All)
+   Violation between Silk To Silk Clearance Constraint: (Collision < 10mil) Between Text "U11" (9554.5mil,4061.5mil) on Top Overlay And Track (9660.63mil,4027.165mil)(9660.63mil,4212.205mil) on Top Overlay Silk Text to Silk Clearance [0mil]
+   Violation between Silk To Silk Clearance Constraint: (Collision < 10mil) Between Text "U9" (10711.5mil,3745.5mil) on Top Overlay And Text "U8" (10799.5mil,3694.5mil) on Top Overlay Silk Text to Silk Clearance [0mil]
+   Violation between Silk To Silk Clearance Constraint: (Collision < 10mil) Between Text ".1uF" (8950mil,3671.575mil) on Top Overlay And Text "C3" (8989.5mil,3817.5mil) on Top Overlay Silk Text to Silk Clearance [0mil]
+Rule Violations :3
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+
+Violations Detected : 174
+Time Elapsed        : 00:00:03

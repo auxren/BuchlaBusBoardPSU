@@ -123,6 +123,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=BWAMQSCP
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for Buchla Bus Board PSU\Design Rule Check - Buchla6PosDist.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Default Configuration
 ParameterCount=0
