@@ -1,0 +1,13 @@
+Change Component Designator: OldDesignator=*1 NewDesignator=Vag2
+Change Component Designator: OldDesignator=*2 NewDesignator=Vag3
+Change Component Designator: OldDesignator=*3 NewDesignator=Vag4
+Change Component Designator: OldDesignator=*4 NewDesignator=Vag5
+Change Component Designator: OldDesignator=*5 NewDesignator=Vag6
+Change Component Designator: OldDesignator=* NewDesignator=Vag1
+Added Component: Designator=Vag7(BuchlaPower)
+Added Component: Designator=Vag8(BuchlaPower)
+Added Net: Name=NetVag1_8
+Added Net: Name=NetVag1_9
+Added Net: Name=NetVag1_10
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component Vag7 Component_1
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component Vag8 Component_1

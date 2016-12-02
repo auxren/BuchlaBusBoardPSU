@@ -1,0 +1,9 @@
+Added Component: Designator=U5(100uF)
+Added Component: Designator=U8(100uF)
+Added Pin To Net: NetName=NetD1_2 Pin=U5-0
+Added Pin To Net: NetName=GND Pin=U5-1
+Added Pin To Net: NetName=GND Pin=U8-0
+Added Pin To Net: NetName=NetD2_1 Pin=U8-1
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component U5 100uF
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component U8 100uF
+Added Room: Name=BuchlaBusBoard

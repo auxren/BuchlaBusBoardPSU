@@ -1,0 +1,13 @@
+Added Component: Designator=*1(BuchlaPower)
+Added Component: Designator=*2(BuchlaPower)
+Added Component: Designator=*3(BuchlaPower)
+Added Component: Designator=*4(BuchlaPower)
+Added Component: Designator=*5(BuchlaPower)
+Added Component: Designator=*(BuchlaPower)
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component *1 Component_1
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component *2 Component_1
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component *3 Component_1
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component *4 Component_1
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component *5 Component_1
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component * Component_1
+Added Room: Name=BuchlaBusBoard

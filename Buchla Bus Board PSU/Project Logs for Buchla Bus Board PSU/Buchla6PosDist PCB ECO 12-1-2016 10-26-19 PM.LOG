@@ -1,0 +1,86 @@
+Added Component: Designator=C1(.1uF)
+Added Component: Designator=C2(.1uF)
+Added Component: Designator=C3(.1uF)
+Added Component: Designator=C13(.1uF)
+Added Component: Designator=D1(DIOD-DO-41-P-2_V)
+Added Component: Designator=D2(DIOD-DO-41-P-2_V)
+Added Component: Designator=P1(HDR1X3)
+Added Component: Designator=P2(HDR1X2)
+Added Component: Designator=U1(TO220)
+Added Component: Designator=U2(NDE0003A)
+Added Component: Designator=U3(NDE0003A)
+Added Component: Designator=U4(NDE0003A)
+Added Component: Designator=U6(1uF)
+Added Component: Designator=U7(1uF)
+Added Component: Designator=U9(1uF)
+Added Component: Designator=U10(1uF)
+Added Component: Designator=U11(1uF)
+Added Component: Designator=U12(1uF)
+Added Component: Designator=U13(1uF)
+Added Component: Designator=U14(1uF)
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=+15V Pin=C1-2
+Added Pin To Net: NetName=-15V Pin=C2-1
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=GND Pin=C3-1
+Added Pin To Net: NetName=+5V Pin=C3-2
+Added Pin To Net: NetName=GND Pin=C13-1
+Added Pin To Net: NetName=+12V Pin=C13-2
+Added Pin To Net: NetName=NetD1_1 Pin=D1-1
+Added Pin To Net: NetName=NetD1_2 Pin=D1-2
+Added Pin To Net: NetName=NetD2_1 Pin=D2-1
+Added Pin To Net: NetName=NetD1_1 Pin=D2-2
+Added Pin To Net: NetName=GND Pin=P1-1
+Added Pin To Net: NetName=GND Pin=P1-2
+Added Pin To Net: NetName=AGND Pin=P1-3
+Added Pin To Net: NetName=GND Pin=P2-1
+Added Pin To Net: NetName=NetD1_1 Pin=P2-2
+Added Pin To Net: NetName=NetD1_2 Pin=U1-1
+Added Pin To Net: NetName=GND Pin=U1-2
+Added Pin To Net: NetName=+15V Pin=U1-3
+Added Pin To Net: NetName=GND Pin=U2-1
+Added Pin To Net: NetName=NetD2_1 Pin=U2-2
+Added Pin To Net: NetName=-15V Pin=U2-3
+Added Pin To Net: NetName=GND Pin=U3-1
+Added Pin To Net: NetName=+15V Pin=U3-2
+Added Pin To Net: NetName=+12V Pin=U3-3
+Added Pin To Net: NetName=GND Pin=U4-1
+Added Pin To Net: NetName=+12V Pin=U4-2
+Added Pin To Net: NetName=+5V Pin=U4-3
+Added Pin To Net: NetName=NetD1_2 Pin=U6-0
+Added Pin To Net: NetName=GND Pin=U6-1
+Added Pin To Net: NetName=+15V Pin=U7-0
+Added Pin To Net: NetName=GND Pin=U7-1
+Added Pin To Net: NetName=GND Pin=U9-0
+Added Pin To Net: NetName=NetD2_1 Pin=U9-1
+Added Pin To Net: NetName=GND Pin=U10-0
+Added Pin To Net: NetName=-15V Pin=U10-1
+Added Pin To Net: NetName=+15V Pin=U11-0
+Added Pin To Net: NetName=GND Pin=U11-1
+Added Pin To Net: NetName=+12V Pin=U12-0
+Added Pin To Net: NetName=GND Pin=U12-1
+Added Pin To Net: NetName=+12V Pin=U13-0
+Added Pin To Net: NetName=GND Pin=U13-1
+Added Pin To Net: NetName=+5V Pin=U14-0
+Added Pin To Net: NetName=GND Pin=U14-1
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component C1 Cap
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component C2 Cap
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component C3 Cap
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component C13 Cap
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component D1 1N4001-T
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component D2 1N4001-T
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component P1 Header 3
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component P2 Header 2
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component U1 L7815ABV
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component U2 LM7915CT
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component U3 LM7812CT
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component U4 LM7805CT
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component U6 1uF
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component U7 1uF
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component U9 1uF
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component U10 1uF
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component U11 10uF
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component U12 1uF
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component U13 1uF
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component U14 1uF
+Added Room: Name=BuchlaBusBoard
