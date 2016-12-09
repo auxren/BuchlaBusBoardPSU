@@ -1,0 +1,77 @@
+Removed Pin From Net: NetName=-15V Pin=C2-1
+Removed Pin From Net: NetName=GND Pin=C2-2
+Removed Pin From Net: NetName=+5V Pin=C3-2
+Removed Pin From Net: NetName=GND Pin=LM7812CT-1
+Removed Pin From Net: NetName=+15V Pin=LM7812CT-2
+Removed Pin From Net: NetName=+15V Pin=U7-0
+Removed Pin From Net: NetName=GND Pin=U7-1
+Removed Pin From Net: NetName=GND Pin=U8-0
+Removed Pin From Net: NetName=GND Pin=U9-0
+Removed Pin From Net: NetName=GND Pin=U10-0
+Removed Pin From Net: NetName=-15V Pin=U10-1
+Removed Pin From Net: NetName=+12V Pin=U12-0
+Removed Pin From Net: NetName=GND Pin=U12-1
+Removed Pin From Net: NetName=+12V Pin=U13-0
+Removed Pin From Net: NetName=GND Pin=U13-1
+Removed Pin From Net: NetName=+5V Pin=U14-0
+Removed Pin From Net: NetName=GND Pin=U14-1
+Removed Member From Class: ClassName=BuchlaBusBoard Member=U5
+Change Component Footprint: Designator=C3 Old Footprint=.1uF New Footprint=1uF
+Change Component Comment : Designator=C3 Old Comment=Cap New Comment=1uF
+Change Component Comment : Designator=C1 Old Comment=Cap New Comment=.1uF
+Change Component Comment : Designator=C13 Old Comment=Cap New Comment=.1uF
+Change Component Designator: OldDesignator=C1 NewDesignator=C4
+Change Component Designator: OldDesignator=L7815ABV NewDesignator=L1
+Change Component Designator: OldDesignator=LM7805CT NewDesignator=LM3
+Change Component Designator: OldDesignator=LM7812CT NewDesignator=LM2
+Change Component Designator: OldDesignator=LM7915CT NewDesignator=LM1
+Change Component Designator: OldDesignator=U5 NewDesignator=C1
+Change Component Designator: OldDesignator=U6 NewDesignator=C2
+Change Component Designator: OldDesignator=U11 NewDesignator=C9
+Change Component Designator: OldDesignator=Vag3 NewDesignator=Vag5
+Change Component Designator: OldDesignator=Vag4 NewDesignator=Vag6
+Change Component Designator: OldDesignator=Vag5 NewDesignator=Vag7
+Change Component Designator: OldDesignator=Vag6 NewDesignator=Vag8
+Change Component Designator: OldDesignator=Vag7 NewDesignator=Vag3
+Change Component Designator: OldDesignator=Vag8 NewDesignator=Vag4
+Added Component: Designator=C5(100uF)
+Added Component: Designator=C6(1uF)
+Added Component: Designator=C7(1uF)
+Added Component: Designator=C8(.1uF)
+Added Component: Designator=C10(1uF)
+Added Component: Designator=C11(1uF)
+Added Component: Designator=C12(1uF)
+Added Component: Designator=C14(.1uF)
+Added Pin To Net: NetName=+15V Pin=C3-0
+Added Pin To Net: NetName=GND Pin=C5-0
+Added Pin To Net: NetName=GND Pin=C6-0
+Added Pin To Net: NetName=GND Pin=C7-0
+Added Pin To Net: NetName=-15V Pin=C7-1
+Added Pin To Net: NetName=-15V Pin=C8-1
+Added Pin To Net: NetName=GND Pin=C8-2
+Added Pin To Net: NetName=+12V Pin=C10-0
+Added Pin To Net: NetName=GND Pin=C10-1
+Added Pin To Net: NetName=+12V Pin=C11-0
+Added Pin To Net: NetName=GND Pin=C11-1
+Added Pin To Net: NetName=+5V Pin=C12-0
+Added Pin To Net: NetName=GND Pin=C12-1
+Added Pin To Net: NetName=GND Pin=C14-1
+Added Pin To Net: NetName=+5V Pin=C14-2
+Added Pin To Net: NetName=+15V Pin=LM2-1
+Added Pin To Net: NetName=GND Pin=LM2-2
+Change Net Name : Old Net Name=NetD1_2 New Net Name=NetC1_0
+Added Pin To Net: NetName=NetC5_1 Pin=C5-1
+Added Pin To Net: NetName=NetC5_1 Pin=C6-1
+Added Pin To Net: NetName=NetC5_1 Pin=D2-1
+Added Pin To Net: NetName=NetC5_1 Pin=LM1-2
+Added Net: Name=NetC5_1
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component C4 .1uF
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component C5 100uF
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component C6 1uF
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component C7 1uF
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component C8 .1uF
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component C10 1uF
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component C11 1uF
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component C12 1uF
+Added Member To Class: ClassName=BuchlaBusBoard Member=Component C14 .1uF
+Added Room: Name=BuchlaBusBoard
