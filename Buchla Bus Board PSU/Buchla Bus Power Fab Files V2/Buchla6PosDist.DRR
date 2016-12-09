@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------------------------------------------------------
-NCDrill File Report For: Buchla6PosDist.PcbDoc   12/2/2016  12:33:44 PM
+NCDrill File Report For: Buchla6PosDist.PcbDoc   12/9/2016  10:29:38 AM
 ----------------------------------------------------------------------------------------------------------------------------------
 
 Layer Pair : Top Layer to Bottom Layer
@@ -7,15 +7,15 @@ ASCII RoundHoles File : Buchla6PosDist.TXT
 
 Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
 ----------------------------------------------------------------------------------------------------------------------------------
-T1      20mil (0.5mm)                                             Round             8         PTH        3.72inch (94.48mm)
-T2      28mil (0.711mm)                                           Round             526       PTH        106.99inch (2717.43mm)
+T1      20mil (0.5mm)                                             Round             8         PTH        3.62inch (92.02mm)
+T2      28mil (0.711mm)                                           Round             523       PTH        106.11inch (2695.17mm)
 T3      30mil (0.762mm)                                           Round             6         PTH        1.57inch (39.82mm)
 T4      35mil (0.9mm)                                             Round             5         PTH        0.98inch (25.00mm)
 T5      39mil (1mm)                                               Round             9         PTH        1.68inch (42.67mm)
 T6      43mil (1.1mm)                                             Round             3         PTH        0.20inch (5.08mm)
 T7      45mil (1.15mm)                                            Round             4         PTH        1.39inch (35.30mm)
-T8      90mil (2.286mm)                                           Round             20        PTH        8.78inch (222.90mm)
+T8      90mil (2.286mm)                                           Round             20        PTH        8.79inch (223.35mm)
 ----------------------------------------------------------------------------------------------------------------------------------
-Totals                                                                              581
+Totals                                                                              578
 
 Total Processing Time (hh:mm:ss) : 00:00:00
