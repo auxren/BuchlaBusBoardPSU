@@ -1,26 +1,35 @@
-Output: Gerber Files
-Type  : Gerber
+Output: ODB++ Files
+Type  : ODB
 From  : PCB Document [Buchla6PosDist.PcbDoc]
-   Generated File[Buchla6PosDist.GTL]
-   Generated File[Buchla6PosDist.GBL]
-   Generated File[Buchla6PosDist.GPB]
-   Generated File[Buchla6PosDist.GPT]
-   Generated File[Buchla6PosDist.GTO]
-   Generated File[Buchla6PosDist.GTP]
-   Generated File[Buchla6PosDist.GTS]
-   Generated File[Buchla6PosDist.GBS]
-   Generated File[Buchla6PosDist.GBP]
-   Generated File[Buchla6PosDist.GBO]
-   Generated File[Buchla6PosDist.GKO]
-   Generated File[Buchla6PosDist.GM1]
-   Generated File[Buchla6PosDist.GM13]
-   Generated File[Buchla6PosDist.GM15]
-   Generated File[Buchla6PosDist.RUL]
-   Generated File[Buchla6PosDist.EXTREP]
+   Generated File[matrix]
+   Generated File[profile]
+   Generated File[stephdr]
+   Generated File[features]
+   Generated File[features]
+   Generated File[features]
+   Generated File[features]
+   Generated File[features]
+   Generated File[features]
+   Generated File[features]
+   Generated File[features]
+   Generated File[features]
+   Generated File[tools]
+   Generated File[features]
+   Generated File[features]
+   Generated File[features]
+   Generated File[features]
+   Generated File[features]
+   Generated File[components]
+   Generated File[features]
+   Generated File[components]
+   Generated File[features]
+   Generated File[tools]
+   Generated File[data]
+   Generated File[netlist]
    Generated File[Buchla6PosDist.REP]
 
 
-Files Generated   : 17
+Files Generated   : 26
 Documents Printed : 0
 
-Finished Output Generation At 10:29:40 AM On 12/9/2016
+Finished Output Generation At 11:59:41 AM On 12/16/2016
